@@ -2,7 +2,7 @@
   "name": "musicplayerjs",
   "version": "1.0.0",
   "description": "Proyecto Taller de Programacion",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
@@ -11,5 +11,13 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^8.2.0"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0",
+    "mysql": "^2.18.1",
+    "node-notifier": "^7.0.0",
+    "python-shell": "^2.0.0",
+    "youtube-dl": "^3.0.2",
+    "yt-search": "^1.1.2"
   }
 }

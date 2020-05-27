@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Music Player Fernando Moreno Moran</title>
+  <link rel="stylesheet" type="text/css" href="styles/styles-dists.css">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <div id="music-player">
+    <div class="music-downloader">
+      <div class="search-bar">
+        <form id="music-search-bar">
+          <p><input type="text" id="keyboard-input" placeholder="Buscar Cancion" required></p>
+          <p><input type="submit" value="Buscar"></p>
+        </form>
+      </div>
+      <div id="search-results">
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script src="scripts/music-downloader.js"></script>
+      </div>
+    </div>
+
+    <div class="audio-player-cont">
+      <div class="logo">
+        <img src="images/disc.png" />
+      </div>
+      <div class="player">
+        <div id="songTitle" class="song-title">Song Title</div>
+        <input id="songSlider" class="song-slider" type="range" min="0" step="1" oninput="seekSong()" on />
+        <div>
+          <div id="currentTime" class="current-time">00:00</div>
+          <div id="duration" class="duration">00:00</div>
+        </div>
+        <div class="controllers">
+          <div class="music-control">
+            <a href="#"><img src="images/back.png" width="40px" onclick="previous();" /></a>
+            <a href="#"><img src="images/play-button.png" width="40px" onclick="playOrPauseSong(this);" /></a>
+            <a href="#"><img src="images/next.png" width="40px" onclick="next();" /></a>
+          </div>
+          <div class="volumen-control">
+            <a href="#"><img src="images/speaker.png" onclick="mute();" class="mute" width="50px"></a>
+            <input id="volumeSlider" class="volume-slider" type="range" min="0" max="1" step="0.01" oninput="adjustVolume()" />
+          </div>
+          <div id="nextSongTitle" class="song-title"><b>Next Song :</b>Next song title</div>
+        </div>
+      </div>
+      <div class="scan">
+      </div>
+      <script src="scripts/renderer.js" charset="utf-8"></script>
+      <script src="scripts/music.js"></script>
+    </div>
+
+    <div class="songs-list">
+      <div id="song-list">
+        <script src="scripts/music-list.js" charset="utf-8"></script>
+      </div>
+      <div class="btn-share">
+        <button type="button" id="btn-sharesongs" name="share-songs" disabled="true" onclick="showOverlay(); showSongsToShare();">Compartir Canciones</button>
+        <script src="scripts/share-music.js" charset="utf-8"></script>
+      </div>
+    </div>
+  </div>
+
+  <div id="submit-songs-form" class="overlay">
+    <div id="form">
+      <div class="wrap">
+        <h2 id="compartir-canciones">Compartir Canciones</h2>
+        <span class="close-form" style="float:right;" onclick="closeOverlay();">X</span>
+        <form class="form-submit-songs">
+          <input type="text" id="playlist-name" class="input-submit-songs" placeholder="Nombre de la lista de reproduccion">
+          <input type="text" id="playlist-description" class="input-submit-songs" placeholder="Descripcion (opcional)">
+          <div id="song-list-toshare">
+            <script src="scripts/showSongsToShare.js" charset="utf-8"></script>
+          </div>
+          <button id="btn-share-songs" type="button" name="button" onclick="shareSongs();">Compartir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
